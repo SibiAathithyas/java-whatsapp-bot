@@ -1,0 +1,12 @@
+{
+  "current_day": 2,
+  "streak": 1,
+  "last_sent_on": "2025-10-18",
+  "items": {
+    "1": "Day 1 — Variables/Types: Simple Calculator (+, -, ×, ÷).",
+    "2": "Day 2 — Conditionals: Number Guessing (1–100, 7 tries).",
+    "3": "Day 3 — Loops: Rock–Paper–Scissors (best of 5).",
+    "4": "Day 4 — Methods: Quiz game (5 Qs, score + retry).",
+    "5": "Day 5 — Arrays: Max/Min + frequency counter."
+  }
+}
