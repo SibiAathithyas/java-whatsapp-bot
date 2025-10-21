@@ -1,6 +1,6 @@
 flask
 gunicorn
-twilio
+twilio==9.2.3
 apscheduler
 python-dotenv
-pytz
+pytz==2024.1
