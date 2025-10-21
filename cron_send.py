@@ -19,11 +19,11 @@ def write_state(state):
         json.dump(state, f, indent=2, ensure_ascii=False)
 
 def main():
-    # Twilio creds from GitHub Secrets (in the workflow env)
+    # Twilio creds from GitHub Secrets (provided by workflow)
     account_sid = os.environ["TWILIO_ACCOUNT_SID"]
     auth_token  = os.environ["TWILIO_AUTH_TOKEN"]
-    from_num    = os.environ["TWILIO_WHATSAPP_FROM"]
-    to_num      = os.environ["MY_WHATSAPP_TO"]
+    from_num    = os.environ["TWILIO_WHATSAPP_FROM"]   # e.g. whatsapp:+14155238886 (sandbox)
+    to_num      = os.environ["MY_WHATSAPP_TO"]         # e.g. whatsapp:+91XXXXXXXXXX
 
     client = Client(account_sid, auth_token)
 
@@ -31,8 +31,9 @@ def main():
     items = state["items"]
     day   = state["current_day"]
 
-    # prevent double send on the same IST date
-    if state.get("last_sent_on") == today_ist():
+    FORCE = os.environ.get("FORCE_SEND") == "1"
+    # Prevent double-send unless forced
+    if not FORCE and state.get("last_sent_on") == today_ist():
         print("Already sent today. Exiting.")
         return
 
@@ -40,17 +41,22 @@ def main():
     if key not in items:
         body = "🎉 All tasks completed! Reply 'restart' to begin again."
     else:
-        # Build the message body
-        title = items[key].split("\n", 1)[0]  # first line as title
-        body  = f"👋 Hey Sibi!\n{items[key]}\n\nReply:\n• \"I'll do it\" ✅ to mark done\n• \"We'll do it tomorrow\" 🔁 to postpone\n• \"restart\" 🔄 to start from Day 1"
+        body = (
+            f"{items[key]}\n\n"
+            "Reply:\n"
+            "• \"I'll do it\" ✅ to mark done\n"
+            "• \"We'll do it tomorrow\" 🔁 to postpone\n"
+            "• \"restart\" 🔄 to start from Day 1"
+        )
 
     # Send via Twilio directly
     client.messages.create(from_=from_num, to=to_num, body=body)
+    print("Message sent via Twilio.")
 
-    # Mark sent for today so cron won't resend
+    # Mark sent for today
     state["last_sent_on"] = today_ist()
     write_state(state)
-    print("Message sent and state updated.")
+    print("State updated (last_sent_on).")
 
 if __name__ == "__main__":
     main()
