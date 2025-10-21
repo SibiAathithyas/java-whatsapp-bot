@@ -1,16 +1,12 @@
 {
   "current_day": 2,
   "streak": 1,
-  "last_sent_on": "2025-10-19",
+  "last_sent_on": "2025-10-21",
   "items": {
     "1": "🧮 Day 1 — Simple Calculator (switch-case)\n\n• Use +, -, ×, ÷ operators.\n• Handle divide-by-zero safely.\n• Allow user input for two numbers and operation.\n• Use 'switch' to perform the operation.\n• Display the result clearly.",
-
     "2": "🔀 Day 2 — If/Else Drills (Conditionals)\n\n• Check if a number is even or odd.\n• Check if a number is positive, negative, or zero.\n• Find the largest of three numbers.\n• Combine all these into one menu-driven program.",
-
     "3": "⭐ Day 3 — Star Patterns I (Loops)\n\n*Pattern 1 → Right Triangle*\n  *\n  **\n  ***\n\n*Pattern 2 → Inverted Right Triangle*\n  ***\n  **\n  *\n\n*Pattern 3 → Centered Pyramid*\n    *\n   ***\n  *****\n (Use nested loops for spaces and stars.)",
-
     "4": "🔢 Day 4 — Number Patterns I (Nested Loops)\n\n*Pattern 1 → 1..n Stair*\n  1\n  1 2\n  1 2 3\n\n*Pattern 2 → Floyd’s Triangle*\n  1\n  2 3\n  4 5 6\n\n*Pattern 3 → Hollow Square*\n  *****\n  *   *\n  *   *\n  *****\n\n(Add variations using user input for size 'n').",
-
     "5": "🔁 Day 5 — Series & Number Checks I\n\n• Print Fibonacci Series up to n terms.\n• Check if a number is a Palindrome.\n• Check if a number is an Armstrong Number (3-digit only).\n• (Optional) Try combining all three with a menu system using loops.)"
   }
 }
