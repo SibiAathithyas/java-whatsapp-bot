@@ -1,7 +1,7 @@
 {
   "current_day": 2,
   "streak": 1,
-  "last_sent_on": "2026-01-12",
+  "last_sent_on": "2026-01-13",
   "items": {
     "1": "🧮 Day 1 — Simple Calculator (switch-case)\n\n• Use +, -, ×, ÷ operators.\n• Handle divide-by-zero safely.\n• Allow user input for two numbers and operation.\n• Use 'switch' to perform the operation.\n• Display the result clearly.",
     "2": "🔀 Day 2 — If/Else Drills (Conditionals)\n\n• Check if a number is even or odd.\n• Check if a number is positive, negative, or zero.\n• Find the largest of three numbers.\n• Combine all these into one menu-driven program.",
